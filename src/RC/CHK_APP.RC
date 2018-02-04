@@ -1,0 +1,21 @@
+/****************************************************************************
+
+
+CHK_APP.RC
+
+produced by Borland Resource Workshop
+
+
+*****************************************************************************/
+
+#include "chk_app.rh"
+
+IDC_ICON_ENBL ICON LOADONCALL MOVEABLE PURE DISCARDABLE "enbl.ico"
+IDC_ICON_DSBL ICON LOADONCALL MOVEABLE PURE DISCARDABLE "disbl.ico"
+IDC_ICON_ACT1 ICON LOADONCALL MOVEABLE PURE DISCARDABLE "act1.ico"
+IDC_ICON_ACT2 ICON LOADONCALL MOVEABLE PURE DISCARDABLE "act2.ico"
+
+ID_BTN256_ABOUT  BITMAP256 LOADONCALL MOVEABLE PURE DISCARDABLE "about.dta"
+
+CSR_OT_Hand      CURSOR LOADONCALL MOVEABLE PURE DISCARDABLE
+                   "hand.cur"

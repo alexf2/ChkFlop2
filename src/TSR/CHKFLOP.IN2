@@ -1,0 +1,53 @@
+[AVirus]
+  1 = D:\AIDS\aids1.exe #:\*.1 /f/1
+  2 = D:\AIDS\aids2.exe #:\*.2 /f/2
+  3 = D:\AIDS\aids3.exe #:\*.3 /f/3
+  4 = D:\AIDS\aids4.exe #:\*.4 /f/4
+  5 = D:\AIDS\aids5.exe #:\*.5 /f/5
+  6 = D:\AIDS\aids6.exe #:\*.6 /f/6
+  7 = D:\AIDS\aids7.exe #:\*.7 /f/7
+  8 = D:\AIDS\aids8.exe #:\*.8 /f/8
+  9 = D:\AIDS\anti-1.exe #:\*.9 /9
+  10 = D:\AIDS\anti-2.exe #:\*.10 /10
+  11 = D:\AIDS\anti-3.exe #:\*.11 /11
+  12 = D:\AIDS\anti-4.exe #:\*.12 /12
+  13 = D:\AIDS\anti-5.exe #:\*.13 /13
+  14 = D:\AIDS\anti-6.exe #:\*.14 /14
+  15 = D:\AIDS\anti-7.exe #:\*.15 /15
+  16 = D:\AIDS\anti-8.exe #:\*.16 /16
+  17 = C:\AIDS\a1\a2\a3\a4\a5\a6\a7\anti-77.exe  /123456789_1 /abcdefqwe #:\*.16 /111/222/333/444/555/666/777_1
+  18 = C:\AIDS\a1\a2\a3\a4\a5\a6\a7\anti-78.exe  /123456789_2 /abcdefqwe #:\*.16 /111/222/333/444/555/666/777_2
+  19 = C:\AIDAAAAAAAAAAAAAAAAAAA\anti-79.exe   /123456789_3 /abcdefqwe  #:\*.16  /111/222/333/444/555/666/777_3
+
+[DOSMemory]
+  1 = 10
+  2 = 11
+  3 = 12
+  4 = 13
+  5 = 14
+  6 = 15
+  7 = 16
+  8 = 17
+  9 = 18
+  10 = 19
+  11 = 20
+  12 = 21
+  13 = 22
+  14 = 23
+  15 = 24
+  16 = 25
+  17 = 26
+  18 = 27
+  19 = 28
+
+[DisksDOS]
+  A =  1, 2, 5, 6, 8, 12
+
+[DisksWin]
+  A =  1, 5, 8, 9, 16, 17
+
+[Options]
+  CheckSerial = Yes
+  SizeOfSerialQueue = 3
+  RetryNumberSec1ReadDOS = 3
+  RetryNumberSec1ReadWin = 5

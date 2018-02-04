@@ -1,0 +1,18 @@
+/****************************************************************************
+
+
+chk_app.rh
+
+produced by Borland Resource Workshop
+
+
+*****************************************************************************/
+#define IDC_ICON_ENBL 101
+#define IDC_ICON_DSBL 102
+#define IDC_ICON_ACT1 103
+#define IDC_ICON_ACT2 104
+
+#define ID_BTN256_ABOUT 105
+
+#define CSR_OT_Hand  106
+

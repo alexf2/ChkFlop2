@@ -1,0 +1,49 @@
+/****************************************************************************
+
+
+chk_cfg.rh
+
+produced by Borland Resource Workshop
+
+
+*****************************************************************************/
+
+#define IDC_STA                 200
+
+#define DLG_OPTIONS             1
+#define IDC_GRP_OPT             (IDC_STA + 1)
+
+#define IDC_EDIT_MEM	           (IDC_STA + 2)
+
+#define IDC_TXT_QUEUE           (IDC_STA + 4)
+#define IDC_TXT_QUEUEV          (IDC_STA + 5)
+#define IDC_SLD_QUEUE           (IDC_STA + 6)
+
+#define IDC_TXT_RETRYDOS        (IDC_STA + 7)
+#define IDC_TXT_RETRYDOSV       (IDC_STA + 8)
+#define IDC_SLD_RETRYDOS        (IDC_STA + 9)
+
+#define IDC_TXT_RETRYWIN        (IDC_STA + 10)
+#define IDC_TXT_RETRYWINV       (IDC_STA + 11)
+#define IDC_SLD_RETRYWIN        (IDC_STA + 12)
+
+#define IDC_CHK_CHECKSERIAL     (IDC_STA + 13)
+
+#define IDC_BTN_BROWSE          (IDC_STA + 14)
+#define IDC_BTN_REMOVEALL       (IDC_STA + 15)
+#define IDC_BTN_ADD             (IDC_STA + 16)
+#define IDC_BTN_REMOVE          (IDC_STA + 17)
+#define IDC_BTN_UPDATE          (IDC_STA + 18)
+
+#define IDC_CHECK_WINB          (IDC_STA + 19)
+#define IDC_CHECK_WINA          (IDC_STA + 20)
+#define IDC_CHECK_DOSB          (IDC_STA + 21)
+#define IDC_CHECK_DOSA          (IDC_STA + 22)
+
+#define IDC_EDIT_POST           (IDC_STA + 23)
+#define IDC_EDIT_DRIVE          (IDC_STA + 24)
+#define IDC_EDIT_PREF           (IDC_STA + 25)
+#define IDC_EDIT_AV             (IDC_STA + 26)
+#define IDC_LIST                (IDC_STA + 27)
+
+

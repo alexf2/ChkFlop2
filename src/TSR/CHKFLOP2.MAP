@@ -1,0 +1,78 @@
+
+ Start  Stop   Length Name               Class
+
+ 00000H 00000H 00000H _TEXT              CODE
+ 00000H 00000H 00000H _DATA              DATA
+ 00000H 01678H 01679H Code0              Code
+ 01680H 03E7FH 02800H StkSeg             Code
+ 03E80H 0612EH 022AFH Code2              Code
+ 06130H 06CCFH 00BA0H Code1              Code
+ 06CD0H 073B3H 006E4H Code3              Code
+ 073B4H 073BBH 00008H Code4              Code
+
+
+Detailed map of segments
+
+ 0000:0000 0000 C=CODE   S=_TEXT          G=DGROUP  M=chkflop2.asm ACBP=48
+ 0000:0000 0000 C=CODE   S=_TEXT          G=DGROUP  M=cpu2.asm   ACBP=48
+ 0000:0000 0000 C=CODE   S=_TEXT          G=DGROUP  M=sound.asm  ACBP=48
+ 0000:0000 0000 C=CODE   S=_TEXT          G=DGROUP  M=test_v.asm ACBP=48
+ 0000:0000 0000 C=CODE   S=_TEXT          G=DGROUP  M=scr.asm    ACBP=48
+ 0000:0000 0000 C=CODE   S=_TEXT          G=DGROUP  M=worddec.asm ACBP=48
+ 0000:0000 0000 C=DATA   S=_DATA          G=DGROUP  M=chkflop2.asm ACBP=48
+ 0000:0000 0000 C=DATA   S=_DATA          G=DGROUP  M=cpu2.asm   ACBP=48
+ 0000:0000 0000 C=DATA   S=_DATA          G=DGROUP  M=sound.asm  ACBP=48
+ 0000:0000 0000 C=DATA   S=_DATA          G=DGROUP  M=test_v.asm ACBP=48
+ 0000:0000 0000 C=DATA   S=_DATA          G=DGROUP  M=scr.asm    ACBP=48
+ 0000:0000 0000 C=DATA   S=_DATA          G=DGROUP  M=worddec.asm ACBP=48
+ 0000:0000 1679 C=Code   S=Code0          G=MyCode  M=chkflop2.asm ACBP=68
+ 0000:1680 2800 C=Code   S=StkSeg         G=MyCode  M=chkflop2.asm ACBP=68
+ 0000:3E80 0000 C=Code   S=Code2          G=MyCode  M=chkflop2.asm ACBP=48
+ 0000:3E80 01A1 C=Code   S=Code2          G=MyCode  M=sound.asm  ACBP=48
+ 0000:4022 210D C=Code   S=Code2          G=MyCode  M=scr.asm    ACBP=48
+ 0000:6130 0BA0 C=Code   S=Code1          G=MyCode  M=chkflop2.asm ACBP=48
+ 0000:6CD0 0000 C=Code   S=Code3          G=MyCode  M=chkflop2.asm ACBP=48
+ 0000:6CD0 00AD C=Code   S=Code3          G=MyCode  M=cpu2.asm   ACBP=48
+ 0000:6D7E 05F3 C=Code   S=Code3          G=MyCode  M=test_v.asm ACBP=48
+ 0000:7372 0042 C=Code   S=Code3          G=MyCode  M=worddec.asm ACBP=48
+ 0000:73B4 0008 C=Code   S=Code4          G=MyCode  M=chkflop2.asm ACBP=48
+
+  Address         Publics by Name
+
+ 0000:3FC6       Beep
+ 0000:6073 idle  ClrScr
+ 0000:3F49 idle  Delay
+ 0000:73BC       end_start
+ 0000:73B8       File_CRC
+ 0000:73B4       File_length
+ 0000:6CD0       GetCPU
+ 0000:60BC       KeepDisplay
+ 0000:3FBD idle  NoSound
+ 0000:3FDD       Play
+ 0000:60F9       RestoreDisplay
+ 0000:3FA0 idle  Sound
+ 0000:0100       start
+ 0000:6D7E       TestVirus
+ 0000:3E99       TimerInit
+ 0000:7372       _WordDec
+
+  Address         Publics by Value
+
+ 0000:0100       start
+ 0000:3E99       TimerInit
+ 0000:3F49 idle  Delay
+ 0000:3FA0 idle  Sound
+ 0000:3FBD idle  NoSound
+ 0000:3FC6       Beep
+ 0000:3FDD       Play
+ 0000:6073 idle  ClrScr
+ 0000:60BC       KeepDisplay
+ 0000:60F9       RestoreDisplay
+ 0000:6CD0       GetCPU
+ 0000:6D7E       TestVirus
+ 0000:7372       _WordDec
+ 0000:73B4       File_length
+ 0000:73B8       File_CRC
+ 0000:73BC       end_start
+
+

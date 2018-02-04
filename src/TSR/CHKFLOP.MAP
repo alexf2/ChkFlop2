@@ -1,0 +1,85 @@
+
+ Start  Stop   Length Name               Class
+
+ 00000H 00000H 00000H _TEXT              CODE
+ 00000H 00000H 00000H _DATA              DATA
+ 00000H 00F47H 00F48H Code0              Code
+ 00F50H 0374FH 02800H StkSeg             Code
+ 03750H 05A76H 02327H Code2              Code
+ 05A78H 06628H 00BB1H Code1              Code
+ 0662AH 06D0DH 006E4H Code3              Code
+ 06D0EH 06D15H 00008H Code4              Code
+
+
+Detailed map of segments
+
+ 0000:0000 0000 C=CODE   S=_TEXT          G=DGROUP  M=chkflop.asm ACBP=48
+ 0000:0000 0000 C=CODE   S=_TEXT          G=DGROUP  M=cpu2.asm   ACBP=48
+ 0000:0000 0000 C=CODE   S=_TEXT          G=DGROUP  M=sound.asm  ACBP=48
+ 0000:0000 0000 C=CODE   S=_TEXT          G=DGROUP  M=test_v.asm ACBP=48
+ 0000:0000 0000 C=CODE   S=_TEXT          G=DGROUP  M=scr.asm    ACBP=48
+ 0000:0000 0000 C=CODE   S=_TEXT          G=DGROUP  M=umb.asm    ACBP=48
+ 0000:0000 0000 C=CODE   S=_TEXT          G=DGROUP  M=worddec.asm ACBP=48
+ 0000:0000 0000 C=DATA   S=_DATA          G=DGROUP  M=chkflop.asm ACBP=48
+ 0000:0000 0000 C=DATA   S=_DATA          G=DGROUP  M=cpu2.asm   ACBP=48
+ 0000:0000 0000 C=DATA   S=_DATA          G=DGROUP  M=sound.asm  ACBP=48
+ 0000:0000 0000 C=DATA   S=_DATA          G=DGROUP  M=test_v.asm ACBP=48
+ 0000:0000 0000 C=DATA   S=_DATA          G=DGROUP  M=scr.asm    ACBP=48
+ 0000:0000 0000 C=DATA   S=_DATA          G=DGROUP  M=umb.asm    ACBP=48
+ 0000:0000 0000 C=DATA   S=_DATA          G=DGROUP  M=worddec.asm ACBP=48
+ 0000:0000 0F48 C=Code   S=Code0          G=MyCode  M=chkflop.asm ACBP=68
+ 0000:0F50 2800 C=Code   S=StkSeg         G=MyCode  M=chkflop.asm ACBP=68
+ 0000:3750 0000 C=Code   S=Code2          G=MyCode  M=chkflop.asm ACBP=48
+ 0000:3750 01A1 C=Code   S=Code2          G=MyCode  M=sound.asm  ACBP=48
+ 0000:38F2 210D C=Code   S=Code2          G=MyCode  M=scr.asm    ACBP=48
+ 0000:5A00 0077 C=Code   S=Code2          G=MyCode  M=umb.asm    ACBP=48
+ 0000:5A78 0BB1 C=Code   S=Code1          G=MyCode  M=chkflop.asm ACBP=48
+ 0000:662A 0000 C=Code   S=Code3          G=MyCode  M=chkflop.asm ACBP=48
+ 0000:662A 00AD C=Code   S=Code3          G=MyCode  M=cpu2.asm   ACBP=48
+ 0000:66D8 05F3 C=Code   S=Code3          G=MyCode  M=test_v.asm ACBP=48
+ 0000:6CCC 0042 C=Code   S=Code3          G=MyCode  M=worddec.asm ACBP=48
+ 0000:6D0E 0008 C=Code   S=Code4          G=MyCode  M=chkflop.asm ACBP=48
+
+  Address         Publics by Name
+
+ 0000:5A49       AllocateUMB
+ 0000:3896       Beep
+ 0000:5943 idle  ClrScr
+ 0000:3819 idle  Delay
+ 0000:6D16       end_start
+ 0000:6D12       File_CRC
+ 0000:6D0E       File_length
+ 0000:5A6A       FreeUMB
+ 0000:662A       GetCPU
+ 0000:598C       KeepDisplay
+ 0000:388D idle  NoSound
+ 0000:38AD       Play
+ 0000:59C9       RestoreDisplay
+ 0000:3870 idle  Sound
+ 0000:0100       start
+ 0000:66D8       TestVirus
+ 0000:3769       TimerInit
+ 0000:6CCC       _WordDec
+
+  Address         Publics by Value
+
+ 0000:0100       start
+ 0000:3769       TimerInit
+ 0000:3819 idle  Delay
+ 0000:3870 idle  Sound
+ 0000:388D idle  NoSound
+ 0000:3896       Beep
+ 0000:38AD       Play
+ 0000:5943 idle  ClrScr
+ 0000:598C       KeepDisplay
+ 0000:59C9       RestoreDisplay
+ 0000:5A49       AllocateUMB
+ 0000:5A6A       FreeUMB
+ 0000:662A       GetCPU
+ 0000:66D8       TestVirus
+ 0000:6CCC       _WordDec
+ 0000:6D0E       File_length
+ 0000:6D12       File_CRC
+ 0000:6D16       end_start
+
+
