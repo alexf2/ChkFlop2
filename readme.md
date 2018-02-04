@@ -1,73 +1,17 @@
-## Algo Puzzles
-The solution represents an ASP.Net MVC Core 2 platform for demonstrating algorithms. The main distinguishing and exciting feature is that the platform has the metadata-driven UI. I.e. you do not have to use much attributes on algorithms' input and output structures or to implement views to edit input arguments and to display a result. They are automatically derived off the minimal metadata and off the data structures, which are compliant to certain requirements. Therefore, you may easily plug in new algorithms without much care about the UI. It makes it friction-less, as you only need to add your algorithm code and implement a compliant descriptor class, which provides minimal metadata and describes what input parameters algorithm needs to receive and what results it produces.
-The idea suits well for comparing the flexibility of different languages and platforms to produce generic UI with minimal hardcoding. This instance implemented in .Net/C#/Asp.Net Core 2, which is a typed language for which working with arbitrary data is a kind of not a friction-less task. However, it turned out to be feasible to implement a metadata-driven UI without much extra coding and without overriding embedded standard Razor templates. The task solved by adding some type convertors, providers and templates for the types, needed in algorithms. Now it supports: 
-* array of int, string;
-* jagged array of int[], string[];
-* list of int, string;
-* list of int[], string[];
-* single linked list of int;
-* matrix of int, string.
+## ChkFlop V2
 
-Types are plugged in via a convertor in 
-[Startup.cs: RegisterTypeConverters](./AlgoPuzzles/Startup.cs).
-```csharp
-CM.TypeDescriptor.AddAttributes(typeof(int[]), new CM.TypeConverterAttribute(typeof(SemicolonSeparatedArrayConvertor<int>)));
-```
+>[Полная документация](./Doc/SYS2.DOC)
 
-Also, Razor templates to display arrays, matrixes and lists of arrays are in [Views/Shared/DisplayTemplates](./AlgoPuzzles/Views/Shared/DisplayTemplates/). They are matched to the types by means of [UiHintMetadataProvider](./AlgoPuzzles/Helpers/UiHintMetadataProvider.cs), which is plugged in at Startup.cs:
-```csharp
-services.AddMvc()
-	.AddMvcOptions(m => m.ModelMetadataDetailsProviders.Add(new UiHintMetadataProvider()))
-```
+![General structure](./demo-img/img1.PNG "General structure")
 
-UiHintMetadataProvider facilitates automatic selecting a right Razor template for each complex type and this approach works against default Object Rzaor template, so you do need to decorate properties in your POCOs by UIHintAttribute.
+В этой работе решается задача создания пакета программ, обеспечивающих автоматическое тестирование гибкого диска при его замене с целью предотвращения проникновения в персональную вычислительную систему вирусов. Главная идея разработки - автоматизация контроля информации, поступающей через один из наиболее вероятных каналов “заражения” - накопители на гибких дисках.
 
-### How to add an algorithm
-You need to follow the steps.
-1. Wrap algorithm into your class inheriting AlgoBase<YourClass.Args>.
-1. Put it into [Algorithms/Implementation/ folder](./Algorithms/Implementation/).
-1. Inside of YourClass define a class for the input arguments as a POCO. In examples it is usually called Args.
-1. Override Name and Description properties to provide readable information, describing your algorithm.
-1. Override ExecuteCore method where you call your algorithm and return a result as an anonymous type.
-1. Override TestsSet property to return a set of test cases.
-1. Overriding FileName is needed to return your source code to display in UI, but do not forget to mark your CS file as "copy always".
- 
-```csharp
-    public class FindCommonNumbersInArrays : AlgoBase<FindCommonNumbersInArrays.Args>
-    {
-        static readonly int[] EmptyArray = new int[] { };
+![I/O](./demo-img/img2.PNG "I/O")
 
-        public sealed class Args
-        {
-            [Display(Name = "First Array")]
-            public int[] A1 { get; set; } = EmptyArray;
+## Разбиение функциональности по компонентам
 
-            [Display(Name = "Second Array")]                                    
-            public int[] A2 { get; set; } = EmptyArray;
-
-            [Display(Name = "Third Array")]            
-            public int[] A3 { get; set; } = EmptyArray;
-        }        
-
-        public override string Name { get => "Common array numbers"; }
-
-        public override string Description { get => @"Given three positive int arrays of unique numbers. 
- There is a need to find common numbers of all the arrays.
-<br/><pre>Example: [12; 11; 15; 8], [7; 3; 11; 18; 8], [1; 2; 11; 7; 8] --> [11, 8]</pre>"; }
-
-        protected override dynamic ExecuteCore(Args input)
-        {            
-            return new { CommonNumbers = TestCommonNumbersThree.FindCommonNumbers(input.A1, input.A2, input.A3) };
-        }
-
-        public override IEnumerable<Args> TestSet { get => new [] {
-                new Args(){A1 = new []{1,7,4}, A2 = new []{18, 7, 22, 1}, A3 = new []{18, 1, 4, 5, 7} },
-                new Args(){A1 = new []{1,7,4}, A2 = new int[]{}, A3 = new []{2, 1, 4, 5, 7} },
-                new Args(){A1 = new []{11,12,11, 3, 7, 9, 15, 1, 10, 2}, A2 = new []{1, 12, 11, 9, 55, 88, 99}, A3 = new []{9, 1, 88, 121, 12} }
-            };
-        }        
-
-        public override string FileName { get => base.GetFileName(); }
-    }
-
-```
+1. Обработчики реального режима помещены в TSR chkflop.com. При запуске она выполняет все необходимые начальные тесты и инициализацию: проверку типа процессора, контроль на целостность, проверку своей инсталляции, загрузку параметров конфигурации. Если пакет был уже запущен или не прошёл какой-либо из тестов, то загрузка будет отменена. При отсутствии этой программы в памяти во время старта Windows не будут запущены компоненты защищённого режима. В сеансе DOS реального режима эта TSR выполняет отслеживание смены гибких дисков и в соответствии с текущей конфигурацией реагирует на это. Здесь реализован контроль серийных номеров гибких дисков. Если номер диска найден в кольцевой очереди, то обработчик 13h не будет выставлять запрос на тестирование. Это работает и в сеансе Windows, так как там используется генерация запроса из обработчика13h. TSR отслеживает запуск Windows, регистрируется в службе поддержки TSR Windows, изменяет логику своей работы и инициирует запуск менеджера тестирования защищённого режима chk_f.exe.
+1. TSR при старте выполняет загрузку параметров текущей конфигурации через запуск компилятора файла chkflop.ini iniload.exe. Эта программа  реального режима считав и интерпретировав chkflop.ini передаёт блок памяти с внутренним представлением конфигурации в TSR и завершается. В дальнейшем она больше не используется. Редактор конфигурации защищённого режима самостоятельно читает этот файл. 
+1. chk_drv.dll - загружаемый драйвер, отвечающий за конфигурирование пакета и содержащий перехватчик запросов на тестирование из обработчика 13h TSR, выполняющейся в V86 режиме на системной виртуальной машине. При загрузке он производит перехват вызова функции реального режима через DPMI Int 31h и регистрируется в TSR, передавая туда эмуляцией Int 2Fh реального режима(на системную V86 VM) перехваченный адрес. В своём обработчике перехвата(CALLBACK) он посылает сообщение главному окну приложения chk_f.exe, которое на основании текущей конфигурации может генерировать последовательность запусков AV-утилит. Этот драйвер выполнен с загрузкой в фиксированный сегмент, что является необходимым требованием для обработчика перехвата функций реального режима и минимизирован по объёму, так как в Windows 3.1 загрузка фиксированных сегментов выполняется в сильно лимитированное пространство 1-го мегабайта. Разнесение функций перехвата и запуска вызвано ещё и тем, что функция перехвата выполняется в контексте прерывания, что не позволяет пользоваться асинхронными вызовами Windows.
+1. chk_f.exe - при своей загрузке(инициированной chkflop.com TSR) открывает драйвер chk_drv.dll и регистрируется в нём(передаёт туда HWND своего окна). Если запуск chk_f.exe не был инициирован TSR, а другим способом, то она выдаёт сообщение об ошибке и завершается. Загруженный драйвер выполнив перехват и зарегистрировавшись в TSR ждёт. chk_f.exe, в свою очередь, ждёт сообщений от драйвера. При поступлении такового выполняет запуск антивирусных утилит прочитав конфигураци из блока скомпилированных параметров, который находится в TSR(путём эмуляции прерывания реального режима на системной V86 машине и создания синхронизированного селектора для физического адреса реального режима с целью доступа к блоку конфигурации).
+1. chk_cfg.dll - вызывается chk_f.exe и реализует удобный графический интерфейс представляющий конфигурационные параметры пакета с целью их редактирования пользователем в наиболее наглядной и удобной форме. Выделение функций конфигурирования в отдельную библиотеку обосновывается соображениями экономии ресурсов - она даже не подлинкована к chk_f.exe через библиотеку импорта. Изменение конфигурации - редкое действие и поэтому chk_f.exe выполняет её загрузку по запросу.
